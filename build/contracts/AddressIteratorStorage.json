@@ -1,0 +1,2059 @@
+{
+  "contractName": "AddressIteratorStorage",
+  "abi": [],
+  "bytecode": "0x6080604052348015600f57600080fd5b50603580601d6000396000f3006080604052600080fd00a165627a7a7230582083c0258506e75562993c57fec4137dce4ab00e364bc14d0dbe8071a2ca57e8c20029",
+  "deployedBytecode": "0x6080604052600080fd00a165627a7a7230582083c0258506e75562993c57fec4137dce4ab00e364bc14d0dbe8071a2ca57e8c20029",
+  "sourceMap": "191:2169:72:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;191:2169:72;;;;;;;",
+  "deployedSourceMap": "191:2169:72:-;;;;;",
+  "source": "pragma solidity ^0.4.19;\n\nimport \"../lib/DoublyLinkedList.sol\";\n\n/**\n  @title Address Iterator Storage\n  @author DigixGlobal Pte Ltd\n  @notice See: [Doubly Linked List](/DoublyLinkedList)\n*/\ncontract AddressIteratorStorage {\n\n  // Initialize Doubly Linked List of Address\n  using DoublyLinkedList for DoublyLinkedList.Address;\n\n  /**\n    @notice Reads the first item from the list of Address\n    @param _list The source list\n    @return {\"_item\" : \"The first item from the list\"}\n  */\n  function read_first_from_addresses(DoublyLinkedList.Address storage _list)\n           internal\n           constant\n           returns (address _item)\n  {\n    _item = _list.start_item();\n  }\n\n\n  /**\n    @notice Reads the last item from the list of Address\n    @param _list The source list\n    @return {\"_item\" : \"The last item from the list\"}\n  */\n  function read_last_from_addresses(DoublyLinkedList.Address storage _list)\n           internal\n           constant\n           returns (address _item)\n  {\n    _item = _list.end_item();\n  }\n\n  /**\n    @notice Reads the next item on the list of Address\n    @param _list The source list\n    @param _current_item The current item to be used as base line\n    @return {\"_item\" : \"The next item from the list based on the specieid `_current_item`\"}\n  */\n  function read_next_from_addresses(DoublyLinkedList.Address storage _list, address _current_item)\n           internal\n           constant\n           returns (address _item)\n  {\n    _item = _list.next_item(_current_item);\n  }\n\n  /**\n    @notice Reads the previous item on the list of Address\n    @param _list The source list\n    @param _current_item The current item to be used as base line\n    @return {\"_item\" : \"The previous item from the list based on the spcified `_current_item`\"}\n  */\n  function read_previous_from_addresses(DoublyLinkedList.Address storage _list, address _current_item)\n           internal\n           constant\n           returns (address _item)\n  {\n    _item = _list.previous_item(_current_item);\n  }\n\n  /**\n    @notice Reads the list of Address and returns the length of the list\n    @param _list The source list\n    @return {\"_count\": \"The lenght of the list\"}\n  */\n  function read_total_addresses(DoublyLinkedList.Address storage _list)\n           internal\n           constant\n           returns (uint256 _count)\n  {\n    _count = _list.total();\n  }\n\n}\n",
+  "sourcePath": "@digix/solidity-collections/contracts/abstract/AddressIteratorStorage.sol",
+  "ast": {
+    "absolutePath": "@digix/solidity-collections/contracts/abstract/AddressIteratorStorage.sol",
+    "exportedSymbols": {
+      "AddressIteratorStorage": [
+        21736
+      ]
+    },
+    "id": 21737,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 21655,
+        "literals": [
+          "solidity",
+          "^",
+          "0.4",
+          ".19"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:24:72"
+      },
+      {
+        "absolutePath": "@digix/solidity-collections/contracts/lib/DoublyLinkedList.sol",
+        "file": "../lib/DoublyLinkedList.sol",
+        "id": 21656,
+        "nodeType": "ImportDirective",
+        "scope": 21737,
+        "sourceUnit": 25182,
+        "src": "26:37:72",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": "@title Address Iterator Storage\n@author DigixGlobal Pte Ltd\n@notice See: [Doubly Linked List](/DoublyLinkedList)",
+        "fullyImplemented": true,
+        "id": 21736,
+        "linearizedBaseContracts": [
+          21736
+        ],
+        "name": "AddressIteratorStorage",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "id": 21659,
+            "libraryName": {
+              "contractScope": null,
+              "id": 21657,
+              "name": "DoublyLinkedList",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 25181,
+              "src": "280:16:72",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_DoublyLinkedList_$25181",
+                "typeString": "library DoublyLinkedList"
+              }
+            },
+            "nodeType": "UsingForDirective",
+            "src": "274:52:72",
+            "typeName": {
+              "contractScope": null,
+              "id": 21658,
+              "name": "DoublyLinkedList.Address",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 22667,
+              "src": "301:24:72",
+              "typeDescriptions": {
+                "typeIdentifier": "t_struct$_Address_$22667_storage_ptr",
+                "typeString": "struct DoublyLinkedList.Address"
+              }
+            }
+          },
+          {
+            "body": {
+              "id": 21672,
+              "nodeType": "Block",
+              "src": "639:37:72",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 21670,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 21666,
+                      "name": "_item",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 21664,
+                      "src": "645:5:72",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "arguments": [],
+                      "expression": {
+                        "argumentTypes": [],
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 21667,
+                          "name": "_list",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 21661,
+                          "src": "653:5:72",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_Address_$22667_storage_ptr",
+                            "typeString": "struct DoublyLinkedList.Address storage pointer"
+                          }
+                        },
+                        "id": 21668,
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "start_item",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": 24135,
+                        "src": "653:16:72",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_function_delegatecall_view$_t_struct$_Address_$22667_storage_ptr_$returns$_t_address_$bound_to$_t_struct$_Address_$22667_storage_ptr_$",
+                          "typeString": "function (struct DoublyLinkedList.Address storage pointer) view returns (address)"
+                        }
+                      },
+                      "id": 21669,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "kind": "functionCall",
+                      "lValueRequested": false,
+                      "names": [],
+                      "nodeType": "FunctionCall",
+                      "src": "653:18:72",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "src": "645:26:72",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "id": 21671,
+                  "nodeType": "ExpressionStatement",
+                  "src": "645:26:72"
+                }
+              ]
+            },
+            "documentation": "@notice Reads the first item from the list of Address\n@param _list The source list\n@return {\"_item\" : \"The first item from the list\"}",
+            "id": 21673,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "read_first_from_addresses",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 21662,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 21661,
+                  "name": "_list",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 21673,
+                  "src": "522:38:72",
+                  "stateVariable": false,
+                  "storageLocation": "storage",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_Address_$22667_storage_ptr",
+                    "typeString": "struct DoublyLinkedList.Address"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 21660,
+                    "name": "DoublyLinkedList.Address",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 22667,
+                    "src": "522:24:72",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Address_$22667_storage_ptr",
+                      "typeString": "struct DoublyLinkedList.Address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "521:40:72"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 21665,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 21664,
+                  "name": "_item",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 21673,
+                  "src": "622:13:72",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 21663,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "622:7:72",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "621:15:72"
+            },
+            "scope": 21736,
+            "src": "487:189:72",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 21686,
+              "nodeType": "Block",
+              "src": "987:35:72",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 21684,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 21680,
+                      "name": "_item",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 21678,
+                      "src": "993:5:72",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "arguments": [],
+                      "expression": {
+                        "argumentTypes": [],
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 21681,
+                          "name": "_list",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 21675,
+                          "src": "1001:5:72",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_Address_$22667_storage_ptr",
+                            "typeString": "struct DoublyLinkedList.Address storage pointer"
+                          }
+                        },
+                        "id": 21682,
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "end_item",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": 24167,
+                        "src": "1001:14:72",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_function_delegatecall_view$_t_struct$_Address_$22667_storage_ptr_$returns$_t_address_$bound_to$_t_struct$_Address_$22667_storage_ptr_$",
+                          "typeString": "function (struct DoublyLinkedList.Address storage pointer) view returns (address)"
+                        }
+                      },
+                      "id": 21683,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "kind": "functionCall",
+                      "lValueRequested": false,
+                      "names": [],
+                      "nodeType": "FunctionCall",
+                      "src": "1001:16:72",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "src": "993:24:72",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "id": 21685,
+                  "nodeType": "ExpressionStatement",
+                  "src": "993:24:72"
+                }
+              ]
+            },
+            "documentation": "@notice Reads the last item from the list of Address\n@param _list The source list\n@return {\"_item\" : \"The last item from the list\"}",
+            "id": 21687,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "read_last_from_addresses",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 21676,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 21675,
+                  "name": "_list",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 21687,
+                  "src": "870:38:72",
+                  "stateVariable": false,
+                  "storageLocation": "storage",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_Address_$22667_storage_ptr",
+                    "typeString": "struct DoublyLinkedList.Address"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 21674,
+                    "name": "DoublyLinkedList.Address",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 22667,
+                    "src": "870:24:72",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Address_$22667_storage_ptr",
+                      "typeString": "struct DoublyLinkedList.Address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "869:40:72"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 21679,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 21678,
+                  "name": "_item",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 21687,
+                  "src": "970:13:72",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 21677,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "970:7:72",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "969:15:72"
+            },
+            "scope": 21736,
+            "src": "836:186:72",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 21703,
+              "nodeType": "Block",
+              "src": "1457:49:72",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 21701,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 21696,
+                      "name": "_item",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 21694,
+                      "src": "1463:5:72",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "arguments": [
+                        {
+                          "argumentTypes": null,
+                          "id": 21699,
+                          "name": "_current_item",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 21691,
+                          "src": "1487:13:72",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": [
+                          {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        ],
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 21697,
+                          "name": "_list",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 21689,
+                          "src": "1471:5:72",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_Address_$22667_storage_ptr",
+                            "typeString": "struct DoublyLinkedList.Address storage pointer"
+                          }
+                        },
+                        "id": 21698,
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "next_item",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": 24285,
+                        "src": "1471:15:72",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_function_delegatecall_view$_t_struct$_Address_$22667_storage_ptr_$_t_address_$returns$_t_address_$bound_to$_t_struct$_Address_$22667_storage_ptr_$",
+                          "typeString": "function (struct DoublyLinkedList.Address storage pointer,address) view returns (address)"
+                        }
+                      },
+                      "id": 21700,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "kind": "functionCall",
+                      "lValueRequested": false,
+                      "names": [],
+                      "nodeType": "FunctionCall",
+                      "src": "1471:30:72",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "src": "1463:38:72",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "id": 21702,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1463:38:72"
+                }
+              ]
+            },
+            "documentation": "@notice Reads the next item on the list of Address\n@param _list The source list\n@param _current_item The current item to be used as base line\n@return {\"_item\" : \"The next item from the list based on the specieid `_current_item`\"}",
+            "id": 21704,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "read_next_from_addresses",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 21692,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 21689,
+                  "name": "_list",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 21704,
+                  "src": "1317:38:72",
+                  "stateVariable": false,
+                  "storageLocation": "storage",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_Address_$22667_storage_ptr",
+                    "typeString": "struct DoublyLinkedList.Address"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 21688,
+                    "name": "DoublyLinkedList.Address",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 22667,
+                    "src": "1317:24:72",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Address_$22667_storage_ptr",
+                      "typeString": "struct DoublyLinkedList.Address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 21691,
+                  "name": "_current_item",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 21704,
+                  "src": "1357:21:72",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 21690,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1357:7:72",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1316:63:72"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 21695,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 21694,
+                  "name": "_item",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 21704,
+                  "src": "1440:13:72",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 21693,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1440:7:72",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1439:15:72"
+            },
+            "scope": 21736,
+            "src": "1283:223:72",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 21720,
+              "nodeType": "Block",
+              "src": "1953:53:72",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 21718,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 21713,
+                      "name": "_item",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 21711,
+                      "src": "1959:5:72",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "arguments": [
+                        {
+                          "argumentTypes": null,
+                          "id": 21716,
+                          "name": "_current_item",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 21708,
+                          "src": "1987:13:72",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": [
+                          {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        ],
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 21714,
+                          "name": "_list",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 21706,
+                          "src": "1967:5:72",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_Address_$22667_storage_ptr",
+                            "typeString": "struct DoublyLinkedList.Address storage pointer"
+                          }
+                        },
+                        "id": 21715,
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "previous_item",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": 24245,
+                        "src": "1967:19:72",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_function_delegatecall_view$_t_struct$_Address_$22667_storage_ptr_$_t_address_$returns$_t_address_$bound_to$_t_struct$_Address_$22667_storage_ptr_$",
+                          "typeString": "function (struct DoublyLinkedList.Address storage pointer,address) view returns (address)"
+                        }
+                      },
+                      "id": 21717,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "kind": "functionCall",
+                      "lValueRequested": false,
+                      "names": [],
+                      "nodeType": "FunctionCall",
+                      "src": "1967:34:72",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "src": "1959:42:72",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "id": 21719,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1959:42:72"
+                }
+              ]
+            },
+            "documentation": "@notice Reads the previous item on the list of Address\n@param _list The source list\n@param _current_item The current item to be used as base line\n@return {\"_item\" : \"The previous item from the list based on the spcified `_current_item`\"}",
+            "id": 21721,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "read_previous_from_addresses",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 21709,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 21706,
+                  "name": "_list",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 21721,
+                  "src": "1813:38:72",
+                  "stateVariable": false,
+                  "storageLocation": "storage",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_Address_$22667_storage_ptr",
+                    "typeString": "struct DoublyLinkedList.Address"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 21705,
+                    "name": "DoublyLinkedList.Address",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 22667,
+                    "src": "1813:24:72",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Address_$22667_storage_ptr",
+                      "typeString": "struct DoublyLinkedList.Address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 21708,
+                  "name": "_current_item",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 21721,
+                  "src": "1853:21:72",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 21707,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1853:7:72",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1812:63:72"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 21712,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 21711,
+                  "name": "_item",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 21721,
+                  "src": "1936:13:72",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 21710,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1936:7:72",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1935:15:72"
+            },
+            "scope": 21736,
+            "src": "1775:231:72",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 21734,
+              "nodeType": "Block",
+              "src": "2324:33:72",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 21732,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 21728,
+                      "name": "_count",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 21726,
+                      "src": "2330:6:72",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "arguments": [],
+                      "expression": {
+                        "argumentTypes": [],
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 21729,
+                          "name": "_list",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 21723,
+                          "src": "2339:5:72",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_Address_$22667_storage_ptr",
+                            "typeString": "struct DoublyLinkedList.Address storage pointer"
+                          }
+                        },
+                        "id": 21730,
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "total",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": 24103,
+                        "src": "2339:11:72",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_function_delegatecall_view$_t_struct$_Address_$22667_storage_ptr_$returns$_t_uint256_$bound_to$_t_struct$_Address_$22667_storage_ptr_$",
+                          "typeString": "function (struct DoublyLinkedList.Address storage pointer) view returns (uint256)"
+                        }
+                      },
+                      "id": 21731,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "kind": "functionCall",
+                      "lValueRequested": false,
+                      "names": [],
+                      "nodeType": "FunctionCall",
+                      "src": "2339:13:72",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "src": "2330:22:72",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 21733,
+                  "nodeType": "ExpressionStatement",
+                  "src": "2330:22:72"
+                }
+              ]
+            },
+            "documentation": "@notice Reads the list of Address and returns the length of the list\n@param _list The source list\n@return {\"_count\": \"The lenght of the list\"}",
+            "id": 21735,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "read_total_addresses",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 21724,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 21723,
+                  "name": "_list",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 21735,
+                  "src": "2206:38:72",
+                  "stateVariable": false,
+                  "storageLocation": "storage",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_Address_$22667_storage_ptr",
+                    "typeString": "struct DoublyLinkedList.Address"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 21722,
+                    "name": "DoublyLinkedList.Address",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 22667,
+                    "src": "2206:24:72",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Address_$22667_storage_ptr",
+                      "typeString": "struct DoublyLinkedList.Address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2205:40:72"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 21727,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 21726,
+                  "name": "_count",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 21735,
+                  "src": "2306:14:72",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 21725,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2306:7:72",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2305:16:72"
+            },
+            "scope": 21736,
+            "src": "2176:181:72",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "internal"
+          }
+        ],
+        "scope": 21737,
+        "src": "191:2169:72"
+      }
+    ],
+    "src": "0:2361:72"
+  },
+  "legacyAST": {
+    "absolutePath": "@digix/solidity-collections/contracts/abstract/AddressIteratorStorage.sol",
+    "exportedSymbols": {
+      "AddressIteratorStorage": [
+        21736
+      ]
+    },
+    "id": 21737,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 21655,
+        "literals": [
+          "solidity",
+          "^",
+          "0.4",
+          ".19"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:24:72"
+      },
+      {
+        "absolutePath": "@digix/solidity-collections/contracts/lib/DoublyLinkedList.sol",
+        "file": "../lib/DoublyLinkedList.sol",
+        "id": 21656,
+        "nodeType": "ImportDirective",
+        "scope": 21737,
+        "sourceUnit": 25182,
+        "src": "26:37:72",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": "@title Address Iterator Storage\n@author DigixGlobal Pte Ltd\n@notice See: [Doubly Linked List](/DoublyLinkedList)",
+        "fullyImplemented": true,
+        "id": 21736,
+        "linearizedBaseContracts": [
+          21736
+        ],
+        "name": "AddressIteratorStorage",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "id": 21659,
+            "libraryName": {
+              "contractScope": null,
+              "id": 21657,
+              "name": "DoublyLinkedList",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 25181,
+              "src": "280:16:72",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_DoublyLinkedList_$25181",
+                "typeString": "library DoublyLinkedList"
+              }
+            },
+            "nodeType": "UsingForDirective",
+            "src": "274:52:72",
+            "typeName": {
+              "contractScope": null,
+              "id": 21658,
+              "name": "DoublyLinkedList.Address",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 22667,
+              "src": "301:24:72",
+              "typeDescriptions": {
+                "typeIdentifier": "t_struct$_Address_$22667_storage_ptr",
+                "typeString": "struct DoublyLinkedList.Address"
+              }
+            }
+          },
+          {
+            "body": {
+              "id": 21672,
+              "nodeType": "Block",
+              "src": "639:37:72",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 21670,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 21666,
+                      "name": "_item",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 21664,
+                      "src": "645:5:72",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "arguments": [],
+                      "expression": {
+                        "argumentTypes": [],
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 21667,
+                          "name": "_list",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 21661,
+                          "src": "653:5:72",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_Address_$22667_storage_ptr",
+                            "typeString": "struct DoublyLinkedList.Address storage pointer"
+                          }
+                        },
+                        "id": 21668,
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "start_item",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": 24135,
+                        "src": "653:16:72",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_function_delegatecall_view$_t_struct$_Address_$22667_storage_ptr_$returns$_t_address_$bound_to$_t_struct$_Address_$22667_storage_ptr_$",
+                          "typeString": "function (struct DoublyLinkedList.Address storage pointer) view returns (address)"
+                        }
+                      },
+                      "id": 21669,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "kind": "functionCall",
+                      "lValueRequested": false,
+                      "names": [],
+                      "nodeType": "FunctionCall",
+                      "src": "653:18:72",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "src": "645:26:72",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "id": 21671,
+                  "nodeType": "ExpressionStatement",
+                  "src": "645:26:72"
+                }
+              ]
+            },
+            "documentation": "@notice Reads the first item from the list of Address\n@param _list The source list\n@return {\"_item\" : \"The first item from the list\"}",
+            "id": 21673,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "read_first_from_addresses",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 21662,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 21661,
+                  "name": "_list",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 21673,
+                  "src": "522:38:72",
+                  "stateVariable": false,
+                  "storageLocation": "storage",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_Address_$22667_storage_ptr",
+                    "typeString": "struct DoublyLinkedList.Address"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 21660,
+                    "name": "DoublyLinkedList.Address",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 22667,
+                    "src": "522:24:72",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Address_$22667_storage_ptr",
+                      "typeString": "struct DoublyLinkedList.Address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "521:40:72"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 21665,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 21664,
+                  "name": "_item",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 21673,
+                  "src": "622:13:72",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 21663,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "622:7:72",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "621:15:72"
+            },
+            "scope": 21736,
+            "src": "487:189:72",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 21686,
+              "nodeType": "Block",
+              "src": "987:35:72",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 21684,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 21680,
+                      "name": "_item",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 21678,
+                      "src": "993:5:72",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "arguments": [],
+                      "expression": {
+                        "argumentTypes": [],
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 21681,
+                          "name": "_list",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 21675,
+                          "src": "1001:5:72",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_Address_$22667_storage_ptr",
+                            "typeString": "struct DoublyLinkedList.Address storage pointer"
+                          }
+                        },
+                        "id": 21682,
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "end_item",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": 24167,
+                        "src": "1001:14:72",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_function_delegatecall_view$_t_struct$_Address_$22667_storage_ptr_$returns$_t_address_$bound_to$_t_struct$_Address_$22667_storage_ptr_$",
+                          "typeString": "function (struct DoublyLinkedList.Address storage pointer) view returns (address)"
+                        }
+                      },
+                      "id": 21683,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "kind": "functionCall",
+                      "lValueRequested": false,
+                      "names": [],
+                      "nodeType": "FunctionCall",
+                      "src": "1001:16:72",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "src": "993:24:72",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "id": 21685,
+                  "nodeType": "ExpressionStatement",
+                  "src": "993:24:72"
+                }
+              ]
+            },
+            "documentation": "@notice Reads the last item from the list of Address\n@param _list The source list\n@return {\"_item\" : \"The last item from the list\"}",
+            "id": 21687,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "read_last_from_addresses",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 21676,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 21675,
+                  "name": "_list",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 21687,
+                  "src": "870:38:72",
+                  "stateVariable": false,
+                  "storageLocation": "storage",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_Address_$22667_storage_ptr",
+                    "typeString": "struct DoublyLinkedList.Address"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 21674,
+                    "name": "DoublyLinkedList.Address",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 22667,
+                    "src": "870:24:72",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Address_$22667_storage_ptr",
+                      "typeString": "struct DoublyLinkedList.Address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "869:40:72"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 21679,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 21678,
+                  "name": "_item",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 21687,
+                  "src": "970:13:72",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 21677,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "970:7:72",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "969:15:72"
+            },
+            "scope": 21736,
+            "src": "836:186:72",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 21703,
+              "nodeType": "Block",
+              "src": "1457:49:72",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 21701,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 21696,
+                      "name": "_item",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 21694,
+                      "src": "1463:5:72",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "arguments": [
+                        {
+                          "argumentTypes": null,
+                          "id": 21699,
+                          "name": "_current_item",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 21691,
+                          "src": "1487:13:72",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": [
+                          {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        ],
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 21697,
+                          "name": "_list",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 21689,
+                          "src": "1471:5:72",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_Address_$22667_storage_ptr",
+                            "typeString": "struct DoublyLinkedList.Address storage pointer"
+                          }
+                        },
+                        "id": 21698,
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "next_item",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": 24285,
+                        "src": "1471:15:72",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_function_delegatecall_view$_t_struct$_Address_$22667_storage_ptr_$_t_address_$returns$_t_address_$bound_to$_t_struct$_Address_$22667_storage_ptr_$",
+                          "typeString": "function (struct DoublyLinkedList.Address storage pointer,address) view returns (address)"
+                        }
+                      },
+                      "id": 21700,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "kind": "functionCall",
+                      "lValueRequested": false,
+                      "names": [],
+                      "nodeType": "FunctionCall",
+                      "src": "1471:30:72",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "src": "1463:38:72",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "id": 21702,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1463:38:72"
+                }
+              ]
+            },
+            "documentation": "@notice Reads the next item on the list of Address\n@param _list The source list\n@param _current_item The current item to be used as base line\n@return {\"_item\" : \"The next item from the list based on the specieid `_current_item`\"}",
+            "id": 21704,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "read_next_from_addresses",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 21692,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 21689,
+                  "name": "_list",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 21704,
+                  "src": "1317:38:72",
+                  "stateVariable": false,
+                  "storageLocation": "storage",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_Address_$22667_storage_ptr",
+                    "typeString": "struct DoublyLinkedList.Address"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 21688,
+                    "name": "DoublyLinkedList.Address",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 22667,
+                    "src": "1317:24:72",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Address_$22667_storage_ptr",
+                      "typeString": "struct DoublyLinkedList.Address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 21691,
+                  "name": "_current_item",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 21704,
+                  "src": "1357:21:72",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 21690,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1357:7:72",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1316:63:72"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 21695,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 21694,
+                  "name": "_item",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 21704,
+                  "src": "1440:13:72",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 21693,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1440:7:72",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1439:15:72"
+            },
+            "scope": 21736,
+            "src": "1283:223:72",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 21720,
+              "nodeType": "Block",
+              "src": "1953:53:72",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 21718,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 21713,
+                      "name": "_item",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 21711,
+                      "src": "1959:5:72",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "arguments": [
+                        {
+                          "argumentTypes": null,
+                          "id": 21716,
+                          "name": "_current_item",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 21708,
+                          "src": "1987:13:72",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": [
+                          {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        ],
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 21714,
+                          "name": "_list",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 21706,
+                          "src": "1967:5:72",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_Address_$22667_storage_ptr",
+                            "typeString": "struct DoublyLinkedList.Address storage pointer"
+                          }
+                        },
+                        "id": 21715,
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "previous_item",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": 24245,
+                        "src": "1967:19:72",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_function_delegatecall_view$_t_struct$_Address_$22667_storage_ptr_$_t_address_$returns$_t_address_$bound_to$_t_struct$_Address_$22667_storage_ptr_$",
+                          "typeString": "function (struct DoublyLinkedList.Address storage pointer,address) view returns (address)"
+                        }
+                      },
+                      "id": 21717,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "kind": "functionCall",
+                      "lValueRequested": false,
+                      "names": [],
+                      "nodeType": "FunctionCall",
+                      "src": "1967:34:72",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "src": "1959:42:72",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "id": 21719,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1959:42:72"
+                }
+              ]
+            },
+            "documentation": "@notice Reads the previous item on the list of Address\n@param _list The source list\n@param _current_item The current item to be used as base line\n@return {\"_item\" : \"The previous item from the list based on the spcified `_current_item`\"}",
+            "id": 21721,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "read_previous_from_addresses",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 21709,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 21706,
+                  "name": "_list",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 21721,
+                  "src": "1813:38:72",
+                  "stateVariable": false,
+                  "storageLocation": "storage",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_Address_$22667_storage_ptr",
+                    "typeString": "struct DoublyLinkedList.Address"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 21705,
+                    "name": "DoublyLinkedList.Address",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 22667,
+                    "src": "1813:24:72",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Address_$22667_storage_ptr",
+                      "typeString": "struct DoublyLinkedList.Address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 21708,
+                  "name": "_current_item",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 21721,
+                  "src": "1853:21:72",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 21707,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1853:7:72",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1812:63:72"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 21712,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 21711,
+                  "name": "_item",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 21721,
+                  "src": "1936:13:72",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 21710,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1936:7:72",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1935:15:72"
+            },
+            "scope": 21736,
+            "src": "1775:231:72",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 21734,
+              "nodeType": "Block",
+              "src": "2324:33:72",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 21732,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 21728,
+                      "name": "_count",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 21726,
+                      "src": "2330:6:72",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "arguments": [],
+                      "expression": {
+                        "argumentTypes": [],
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 21729,
+                          "name": "_list",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 21723,
+                          "src": "2339:5:72",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_Address_$22667_storage_ptr",
+                            "typeString": "struct DoublyLinkedList.Address storage pointer"
+                          }
+                        },
+                        "id": 21730,
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "total",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": 24103,
+                        "src": "2339:11:72",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_function_delegatecall_view$_t_struct$_Address_$22667_storage_ptr_$returns$_t_uint256_$bound_to$_t_struct$_Address_$22667_storage_ptr_$",
+                          "typeString": "function (struct DoublyLinkedList.Address storage pointer) view returns (uint256)"
+                        }
+                      },
+                      "id": 21731,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "kind": "functionCall",
+                      "lValueRequested": false,
+                      "names": [],
+                      "nodeType": "FunctionCall",
+                      "src": "2339:13:72",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "src": "2330:22:72",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 21733,
+                  "nodeType": "ExpressionStatement",
+                  "src": "2330:22:72"
+                }
+              ]
+            },
+            "documentation": "@notice Reads the list of Address and returns the length of the list\n@param _list The source list\n@return {\"_count\": \"The lenght of the list\"}",
+            "id": 21735,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "read_total_addresses",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 21724,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 21723,
+                  "name": "_list",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 21735,
+                  "src": "2206:38:72",
+                  "stateVariable": false,
+                  "storageLocation": "storage",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_Address_$22667_storage_ptr",
+                    "typeString": "struct DoublyLinkedList.Address"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 21722,
+                    "name": "DoublyLinkedList.Address",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 22667,
+                    "src": "2206:24:72",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Address_$22667_storage_ptr",
+                      "typeString": "struct DoublyLinkedList.Address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2205:40:72"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 21727,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 21726,
+                  "name": "_count",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 21735,
+                  "src": "2306:14:72",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 21725,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2306:7:72",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2305:16:72"
+            },
+            "scope": 21736,
+            "src": "2176:181:72",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "internal"
+          }
+        ],
+        "scope": 21737,
+        "src": "191:2169:72"
+      }
+    ],
+    "src": "0:2361:72"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.4.24+commit.e67f0147.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "2.0.1",
+  "updatedAt": "2018-10-08T06:32:23.446Z"
+}

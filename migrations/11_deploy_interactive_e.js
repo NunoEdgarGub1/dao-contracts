@@ -17,22 +17,22 @@ const DaoRewardsManagerExtras = artifacts.require('DaoRewardsManagerExtras.sol')
 const DaoWhitelisting = artifacts.require('DaoWhitelisting.sol');
 
 module.exports = async function (deployer, network) {
-  if ((network !== 'development' && network !== 'kovan') || process.env.SKIP) { return null; }
+  if ((network === 'development' && !process.env.FORCE) || process.env.SKIP) { return null; }
   deployer.deploy(DaoWhitelisting, ContractResolver.address, [
+    DaoCalculatorService.address,
+    DaoListingService.address,
     DaoStakeLocking.address,
     DaoIdentity.address,
     DaoFundingManager.address,
-    DaoRewardsManager.address,
-    DaoRewardsManagerExtras.address,
     Dao.address,
     DaoSpecialProposal.address,
     DaoVoting.address,
     DaoVotingClaims.address,
     DaoSpecialVotingClaims.address,
-    DaoCalculatorService.address,
-    DaoListingService.address,
+    DaoRewardsManager.address,
+    DaoRewardsManagerExtras.address,
   ])
     .then(() => {
-      console.log('Deployed DaoWhitelisting');
+      console.log('Deployed Interactive Part E');
     });
 };

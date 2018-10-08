@@ -8,7 +8,7 @@ const MockNumberCarbonVoting1 = artifacts.require('./NumberCarbonVoting1.sol');
 const MockNumberCarbonVoting2 = artifacts.require('./NumberCarbonVoting2.sol');
 
 module.exports = async function (deployer, network, accounts) {
-  if ((network !== 'development' && network !== 'kovan') || process.env.SKIP) { return null; }
+  if (!process.env.DUMMY_TOKENS) { return null; }
   deployer.deploy(DGDToken)
     .then(() => {
       return deployer.deploy(DGDBadgeToken);
@@ -29,7 +29,12 @@ module.exports = async function (deployer, network, accounts) {
       return deployer.deploy(MockDgxDemurrageReporter, MockDgx.address);
     })
     .then(() => {
-      deployer.deploy(MockNumberCarbonVoting1, 'carbonVoting1');
+      return deployer.deploy(MockNumberCarbonVoting1, 'carbonVoting1');
+    })
+    .then(() => {
       return deployer.deploy(MockNumberCarbonVoting2, 'carbonVoting2');
+    })
+    .then(() => {
+      console.log('Dummy Token Deployment Done');
     });
 };
