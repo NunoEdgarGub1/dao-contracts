@@ -1,7 +1,7 @@
 {
-  "name": "@digix/dao-contracts",
-  "version": "1.0.0",
-  "description": "Smart contracts for DigixDAO",
+  "name": "@digix/dao-contracts-kovan",
+  "version": "0.0.1",
+  "description": "Smart contracts for DigixDAO (Deployed on Kovan Testnet)",
   "main": "truffle-config.js",
   "directories": {
     "test": "test"
